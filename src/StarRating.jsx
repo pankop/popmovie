@@ -64,13 +64,14 @@ StarRating.PropTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
 };
-export default function StarRating({ max = 5, color, size = 20 }) {
+export default function StarRating({ max = 5, color, size = 20, onSetRating }) {
   // ini kita bisa set default jika dev tidak menentukan nilainya di file index
   const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
 
   function handleRating(rating) {
     setRating(rating);
+    onSetRating(rating);
   }
   return (
     <div style={containerStyle}>
